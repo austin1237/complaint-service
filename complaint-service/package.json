@@ -1,0 +1,17 @@
+{
+    "name": "complaint-service",
+    "version": "1.0.0",
+    "description": "Node.js on Docker",
+    "main": "api.js",
+    "scripts": {
+      "start": "node api.js"
+    },
+    "dependencies": {
+      "express": "4.16.0",
+      "mysql": "2.15.0",
+      "knex": "0.13.0"
+    },
+    "apidoc": {
+      "title": "austin-davis-test"
+    }
+  }

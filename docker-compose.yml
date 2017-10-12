@@ -1,0 +1,46 @@
+version: '3'
+services:
+  complaintdb:
+    build: ./complaintdb
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3001:3306"
+    environment:
+       MYSQL_DATABASE: complaints
+       MYSQL_ROOT_PASSWORD: password
+
+  complaint-service:
+    build: ./complaint-service
+    command: 'npm start'
+    volumes:
+      - ./complaint-service:/app
+      - /app/node_modules
+    ports:
+      - "3000:8080"
+    environment:
+      MYSQL_HOST: complaintdb
+      MYSQL_USER: root
+      MYSQL_DB: complaints
+      MYSQL_PASSWORD: password
+  
+  doc-service:
+    build: ./doc-service
+    volumes:
+      - ./doc-service/www:/usr/share/nginx/www/ 
+    ports:  
+      - "3002:8080"
+  
+  doc-generator:
+    build: 
+      context: .
+      dockerfile: ./doc-generator/Dockerfile
+    command: 'apidoc -o docs/'
+    volumes:
+      - ./complaint-service:/app
+      - ./doc-service/www:/app/docs
+
+
+
+volumes:
+    mysql_data:
