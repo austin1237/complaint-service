@@ -1,5 +1,6 @@
-_ = require('lodash')
-let dbToClient = (products) =>{
+_ = require('lodash');
+
+let productDbToClient = (products) =>{
     clientReadyProducts = [];
     _.each(products, (product) =>{
         let clientProduct = {
@@ -11,4 +12,17 @@ let dbToClient = (products) =>{
     return clientReadyProducts
 }
 
-exports.dbToClient = dbToClient
+let totalDbToClient = (totals) =>{
+    clientReadyTotals = [];
+    _.each(totals, (total) =>{
+        let clientTotal = {
+            productId: total.productID,
+            total: total.total,
+        }
+        clientReadyTotals.push(clientTotal)
+    })
+    return clientReadyTotals
+}
+
+exports.productDbToClient = productDbToClient
+exports.totalDbToClient = totalDbToClient

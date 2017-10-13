@@ -1,11 +1,21 @@
 const express = require('express');
-const app = express();
-const port = 8080;
+const bodyParser = require('body-parser')
 const db = require('./src/data/dataContex').getDb(process.env);
 const statesRouter = require('./src/routers/statesRouter.js');
 const productRouter = require('./src/routers/productsRouter.js');
+const app = express();
+const port = 8080;
 
 // Injects the db into all routes
+
+
+// Attach Middleware
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
 app.use('/', (req, res, next) =>{
   req.db = db
   return next()

@@ -4,7 +4,7 @@ const productsAdapter = require('../adapters/productsAdapter.js')
 const getProductsAsync = async (searchConfig) => {
     try {
        products = await productsRepo.getProducts(searchConfig)
-       products = productsAdapter.dbToClient(products)
+       products = productsAdapter.productDbToClient(products)
     } catch(e) {
         throw e
     }
@@ -14,6 +14,7 @@ const getProductsAsync = async (searchConfig) => {
 const getProductsTotalsAsync = async (searchConfig) => {
     try {
         totals = await productsRepo.getTotals(searchConfig)
+        totals = productsAdapter.totalDbToClient(totals)
      } catch(e) {
          throw e
      }
