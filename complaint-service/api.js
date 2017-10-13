@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const db = require('./src/data/dataContex').getDb(process.env);
 const statesRouter = require('./src/routers/statesRouter.js');
 const productRouter = require('./src/routers/productsRouter.js');
+const healthRouter = require('./src/routers/productsRouter.js')
 const app = express();
 const port = 8080;
 
@@ -21,15 +22,8 @@ app.use('/', (req, res, next) =>{
   return next()
 })
 
-/**
-* @api {get} /health is the service healthy
-* @apiName HealthCheck
-* @apiGroup health
-*/
-app.get('/health', function (req, res) {
-  res.sendStatus(200)
-});
-
+// AttachRoutes
+healthRouter.setUpRoutes(app);
 statesRouter.setUpRoutes(app);
 productRouter.setUpRoutes(app);
 
@@ -38,13 +32,6 @@ app.listen(port, function () {
 });
 
 module.exports = app;
-
-
-// Sample Query
-// select productID, count(*) AS "TOTAL" from complaints where stateID=1 group by productID; 
-
-// GET /issues
-// GET /issueSummary?companyID={id} 
 
 
 //Second Question 

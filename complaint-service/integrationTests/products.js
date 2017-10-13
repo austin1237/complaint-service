@@ -1,7 +1,7 @@
 const request = require("supertest");
 const app = require("../api.js");
 const _ = require("lodash");
-var expect = require("chai").expect;
+const expect = require("chai").expect;
 
 describe('GET /products', function() {
     it('return valid products', function(done) {

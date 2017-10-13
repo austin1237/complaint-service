@@ -30,11 +30,161 @@ define({ "api": [
   {
     "type": "get",
     "url": "/health",
-    "title": "is the service healthy",
+    "title": "GET health",
     "name": "HealthCheck",
     "group": "health",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
     "version": "0.0.0",
-    "filename": "./api.js",
+    "filename": "./src/routers/healthRouter.js",
     "groupTitle": "health"
+  },
+  {
+    "type": "get",
+    "url": "/products/totals",
+    "title": "GET product totals",
+    "name": "GetProductTotals",
+    "description": "<p>request total number of complaints per product</p>",
+    "group": "products",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>id of the product that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "companyId",
+            "description": "<p>id of the company that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "issueId",
+            "description": "<p>id of the issue that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "stateId",
+            "description": "<p>id of the state that filters the complaints totals</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"productId\": 1,\n  \"total\": 1712\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./src/routers/productsRouter.js",
+    "groupTitle": "products"
+  },
+  {
+    "type": "get",
+    "url": "/products",
+    "title": "GET products",
+    "description": "<p>request information on products</p>",
+    "name": "GetProducts",
+    "group": "products",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>id of the product</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the product</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"productId\": 1,\n  \"name\": \"Mortgage\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./src/routers/productsRouter.js",
+    "groupTitle": "products"
+  },
+  {
+    "type": "get",
+    "url": "/states",
+    "title": "GET states",
+    "description": "<p>request information on states</p>",
+    "name": "GetState",
+    "group": "states",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the state</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the state</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "abbreviation",
+            "optional": false,
+            "field": "two",
+            "description": "<p>letter abbreviation of the state</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": 1,\n  \"name\": \"California\",\n  \"abbreviation\": \"CA\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./src/routers/statesRouter.js",
+    "groupTitle": "states"
   }
 ] });
