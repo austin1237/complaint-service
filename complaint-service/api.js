@@ -28,7 +28,7 @@ app.listen(port, function () {
   console.log(`api listening on port ${port}`);
 });
 
-
+module.exports = app;
 
 //Getting tired But maybe this should be the typically controller flow
 // validator.validateQuery
@@ -44,13 +44,14 @@ app.listen(port, function () {
 // GET /states
 // GET /states/:id
 
+// GET /products
+// GET /productSummary?stateID={id}
+
 // GET /companies
 // GET /companies/:id
 // GET /companySummary?productID={id}
 
-// GET /products
-// GET /products/:id
-// GET /productSummary?stateID={id}
+
 
 // GET /issues
 // GET /issues/:id
