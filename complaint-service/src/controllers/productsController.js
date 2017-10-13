@@ -1,16 +1,37 @@
 const productProvider = require('../data/providers/productProvider')
 
 const querySearch = async (req, res, next) => {
-    let {id, name} = req.query
+    let {productId, name} = req.query
     let db = req.db
     searchConfig = {
-        id: id,
+        id: productId,
         name: name,
         db: db
     }
 
     try{
-        req.products = await productProvider.getProductsAsync(searchConfig)
+        req.response = await productProvider.getProductsAsync(searchConfig)
+    } catch(e) {
+        return next(e)
+    }
+
+    return next();
+
+}
+
+const totalSearch = async (req, res, next) => {
+    let {productId, companyId, issueId, stateId} = req.query
+    let db = req.db
+    searchConfig = {
+        proudctId: productId,
+        companyId: companyId,
+        issueId: issueId,
+        stateId: stateId,
+        db: db
+    }
+
+    try{
+        req.response = await productProvider.getProductsTotalsAsync(searchConfig)
     } catch(e) {
         return next(e)
     }
@@ -20,10 +41,15 @@ const querySearch = async (req, res, next) => {
 }
 
 const send = (req, res, next) => {
-    return res.status(200).json(req.products)
+    return res.status(200).json(req.response)
 }
 
 exports.querySearch = [
     querySearch,
+    send
+];
+
+exports.totalSearch = [
+    totalSearch,
     send
 ];

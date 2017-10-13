@@ -3,7 +3,7 @@ let dbToClient = (products) =>{
     clientReadyProducts = [];
     _.each(products, (product) =>{
         let clientProduct = {
-            id: product.ID,
+            productId: product.ID,
             name: product.name,
         }
         clientReadyProducts.push(clientProduct)

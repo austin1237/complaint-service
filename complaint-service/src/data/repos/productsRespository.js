@@ -15,4 +15,35 @@ const getProducts = async (searchOptions) => {
     return productsQuery
 }
 
+const getTotals = async (searchOptions) => {
+    let {productId, companyId, issueId, stateId} = searchOptions;
+    // productID, count(*) AS "TOTAL" from complaints where stateID=1 group by productID; 
+    let totalsQuery = db
+    .select("productID")
+    .count('* as total')
+    .from("complaints")
+
+    if (productId){
+        totalsQuery.where("productID", productId);        
+    }
+
+    if (companyId){
+        totalsQuery.where("companyID", companyId);
+    }
+
+    if(issueId){
+        totalsQuery.where("issueID", issueId);
+    }
+
+    if(stateId){
+        totalsQuery.where("stateID", stateId);
+    }
+    
+    totalsQuery.groupBy("productID")
+
+    return totalsQuery
+
+}
+
 exports.getProducts = getProducts;
+exports.getTotals = getTotals

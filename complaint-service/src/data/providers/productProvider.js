@@ -1,8 +1,7 @@
 const productsRepo = require('../repos/productsRespository.js');
 const productsAdapter = require('../adapters/productsAdapter.js')
-let getProductsAsync = async (searchConfig) => {
-    // validator
-    // adapter
+
+const getProductsAsync = async (searchConfig) => {
     try {
        products = await productsRepo.getProducts(searchConfig)
        products = productsAdapter.dbToClient(products)
@@ -12,4 +11,14 @@ let getProductsAsync = async (searchConfig) => {
     return products
 }
 
+const getProductsTotalsAsync = async (searchConfig) => {
+    try {
+        totals = await productsRepo.getTotals(searchConfig)
+     } catch(e) {
+         throw e
+     }
+     return totals
+}
+
 exports.getProductsAsync = getProductsAsync;
+exports.getProductsTotalsAsync = getProductsTotalsAsync;

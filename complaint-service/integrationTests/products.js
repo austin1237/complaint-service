@@ -11,9 +11,9 @@ describe('GET /products', function() {
         .expect(200)
         .end(function(err, res) {
           if (err) return done(err);
-          _.each(res.body, (state)=>{
-            expect(state.id).to.be.a("number");
-            expect(state.name).to.be.a("string");
+          _.each(res.body, (product)=>{
+            expect(product.productId).to.be.a("number");
+            expect(product.name).to.be.a("string");
           })
           done();
         });
