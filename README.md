@@ -31,6 +31,5 @@ To refresh your documentation enter this command
 ```bash
 docker-compose up doc-generator
 ```
-localhost:3002
 
 
