@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 8080;
-//Inital dependency injection
 const db = require('./src/data/dataContex').getDb(process.env);
 const statesRouter = require('./src/routers/statesRouter.js');
-
+const productRouter = require('./src/routers/productsRouter.js');
 
 // Injects the db into all routes
 app.use('/', (req, res, next) =>{
@@ -21,8 +20,8 @@ app.get('/health', function (req, res) {
   res.sendStatus(200)
 });
 
-
-statesRouter.setUpRoutes(app)
+statesRouter.setUpRoutes(app);
+productRouter.setUpRoutes(app);
 
 app.listen(port, function () {
   console.log(`api listening on port ${port}`);
@@ -30,31 +29,11 @@ app.listen(port, function () {
 
 module.exports = app;
 
-//Getting tired But maybe this should be the typically controller flow
-// validator.validateQuery
-// dataProvider.hitDB
-// sendResponse 
 
 // Sample Query
 // select productID, count(*) AS "TOTAL" from complaints where stateID=1 group by productID; 
 
-// First Questions endpoint 
-// Query Coniditions should be forgein keys
-
-// GET /states
-// GET /states/:id
-
-// GET /products
-// GET /productSummary?stateID={id}
-
-// GET /companies
-// GET /companies/:id
-// GET /companySummary?productID={id}
-
-
-
 // GET /issues
-// GET /issues/:id
 // GET /issueSummary?companyID={id} 
 
 
