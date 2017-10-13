@@ -2,21 +2,32 @@ const express = require('express');
 const app = express();
 const port = 8080;
 //Inital dependency injection
-const db = require('./src/dataContex').getDb(process.env);
+const db = require('./src/data/dataContex').getDb(process.env);
+const statesRouter = require('./src/routers/statesRouter.js');
+
+
+// Injects the db into all routes
+app.use('/', (req, res, next) =>{
+  req.db = db
+  return next()
+})
 
 /**
 * @api {get} /health is the service healthy
 * @apiName HealthCheck
 * @apiGroup health
 */
-
 app.get('/health', function (req, res) {
   res.sendStatus(200)
 });
 
+
+statesRouter.setUpRoutes(app)
+
 app.listen(port, function () {
   console.log(`api listening on port ${port}`);
 });
+
 
 
 //Getting tired But maybe this should be the typically controller flow
