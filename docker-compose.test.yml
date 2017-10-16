@@ -1,0 +1,10 @@
+version: '3'
+services:
+  complaint-service:
+    build: ./complaint-service
+    command: 'npm test'
+    environment:
+      MYSQL_HOST: locahost
+      MYSQL_USER: root
+      MYSQL_DB: complaints
+      MYSQL_PASSWORD: password
