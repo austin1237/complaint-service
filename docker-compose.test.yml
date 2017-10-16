@@ -15,3 +15,5 @@ services:
       MYSQL_USER: root
       MYSQL_DB: complaints
       MYSQL_PASSWORD: password
+    depends_on: 
+      - complaintdb
