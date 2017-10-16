@@ -16,7 +16,7 @@ jobs:
       - run:
           name: spin up db
           command: docker-compose -f ./docker-compose.test.yml up complaintdb
-      -run:
+      - run:
           name: wait for db to be seeded
           command: docker-compose ./docker-compose.test.ym run complaint-service ./wait-for-mysql.sh
       - run:
