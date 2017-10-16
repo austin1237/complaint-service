@@ -3,7 +3,7 @@ services:
   complaintdb:
     build:
       context: ./complaintdb
-      dockerfile: ./complaintdb/DockerfileCI
+      dockerfile: ./DockerfileCI
     environment:
        MYSQL_DATABASE: complaints
        MYSQL_ROOT_PASSWORD: password
