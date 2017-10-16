@@ -9,7 +9,7 @@ services:
        MYSQL_ROOT_PASSWORD: password
   complaint-service:
     build: ./complaint-service
-    command: './wait-for-mysql.sh | npm test'
+    command: 'npm test'
     environment:
       MYSQL_HOST: localhost
       MYSQL_USER: root
