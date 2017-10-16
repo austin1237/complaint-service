@@ -11,7 +11,7 @@ services:
     build: ./complaint-service
     command: 'npm test'
     environment:
-      MYSQL_HOST: localhost
+      MYSQL_HOST: complaintdb
       MYSQL_USER: root
       MYSQL_DB: complaints
       MYSQL_PASSWORD: password
