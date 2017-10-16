@@ -5,7 +5,7 @@
     "main": "api.js",
     "scripts": {
       "start": "node api.js",
-      "test": "mocha integrationTests"
+      "test": "mocha integrationTests --exit"
     },
     "dependencies": {
       "express": "4.16.0",
