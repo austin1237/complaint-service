@@ -9,11 +9,12 @@ services:
        MYSQL_ROOT_PASSWORD: password
   complaint-service:
     build: ./complaint-service
-    command: 'npm test'
+    command: './wait-for-mysql.sh && npm test'
     environment:
       MYSQL_HOST: localhost
       MYSQL_USER: root
       MYSQL_DB: complaints
       MYSQL_PASSWORD: password
+      DOCKERIZE_VERSION: v0.3.0
     depends_on: 
       - complaintdb
