@@ -1,10 +1,17 @@
 version: '3'
 services:
+  complaintdb:
+    build:
+      context: ./complaintdb
+      dockerfile: ./complaintdb/DockerfileCI
+    environment:
+       MYSQL_DATABASE: complaints
+       MYSQL_ROOT_PASSWORD: password
   complaint-service:
     build: ./complaint-service
     command: 'npm test'
     environment:
-      MYSQL_HOST: locahost
+      MYSQL_HOST: localhost
       MYSQL_USER: root
       MYSQL_DB: complaints
       MYSQL_PASSWORD: password
