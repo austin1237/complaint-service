@@ -35,17 +35,21 @@ jobs:
             command: |
                 echo $GCLOUD_KEY_JSON > /home/circleci/.gcloud-key
                 gcloud auth activate-service-account --key-file=/home/circleci/.gcloud-key
-        - run:
-            name: Deploy Documentation to Google App Engine
-            command: |
-                gcloud config set project austin-davis-test
-                cd ./doc-service
-                gcloud app deploy --version="documentation"
+        -run:
+            name: configure gcloud to the correct project
+            command: gcloud config set project austin-davis-test
+        
         - run:
             name: Deploy the service to Google App Engine
             command: |
                 cd ./complaint-service
                 gcloud app deploy
+        
+        - run:
+            name: Deploy Documentation to Google App Engine
+            command: |
+                cd ./doc-service
+                gcloud app deploy --version="documentation"
 
 
 
