@@ -40,7 +40,17 @@ jobs:
             command: |
                 gcloud config set project austin-davis-test
                 cd ./doc-service
+                gcloud app deploy --version="documentation"
+        - run:
+            name: Deploy the service to Google App Engine
+            command: |
+                cd ../complaint-service
                 gcloud app deploy
+
+
+
+
+
 
 workflows:
   version: 2

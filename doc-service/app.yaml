@@ -1,2 +1,7 @@
 runtime: custom
 env: flex
+env_variables:
+  MYSQL_HOST: austin-davis-test:us-central1:complaintdb    
+  MYSQL_USER: root
+  MYSQL_DB: complaints
+  MYSQL_PASSWORD: PmH6A4skwJJotlne
