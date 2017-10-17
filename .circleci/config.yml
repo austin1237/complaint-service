@@ -44,7 +44,7 @@ jobs:
         - run:
             name: Deploy the service to Google App Engine
             command: |
-                cd ../complaint-service
+                cd ./complaint-service
                 gcloud app deploy
 
 
