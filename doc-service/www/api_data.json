@@ -29,6 +29,46 @@
   },
   {
     "type": "get",
+    "url": "/companies",
+    "title": "GET companies",
+    "description": "<p>request information on products</p>",
+    "name": "GetProducts",
+    "group": "company",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "companyId",
+            "description": "<p>id of the company</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "name",
+            "description": "<p>name of the company</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"companyId\": 1,\n  \"name\": \"Wallace Corporation\"\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./src/routers/companiesRouter.js",
+    "groupTitle": "company"
+  },
+  {
+    "type": "get",
     "url": "/health",
     "title": "GET health",
     "name": "HealthCheck",

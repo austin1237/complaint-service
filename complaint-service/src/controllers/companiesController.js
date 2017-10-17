@@ -1,17 +1,16 @@
-const stateProvider = require('../data/providers/stateProvider')
+const companyProvider = require('../data/providers/companyProvider')
 
 const querySearch = async (req, res, next) => {
-    let {id, name, abbreviation} = req.query
+    let {companyId, name} = req.query
     let db = req.db
     searchConfig = {
-        id: id,
+        id: companyId,
         name: name,
-        abbreviation: abbreviation,
         db: db
     }
 
     try{
-        req.states = await stateProvider.getStatesAsync(searchConfig)
+        req.response = await companyProvider.getCompaniesAsync(searchConfig)
     } catch(e) {
         return next(e)
     }
@@ -21,7 +20,7 @@ const querySearch = async (req, res, next) => {
 }
 
 const send = (req, res, next) => {
-    return res.status(200).json(req.states)
+    return res.status(200).json(req.response)
 }
 
 exports.querySearch = [
