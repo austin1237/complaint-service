@@ -1,18 +1,18 @@
 const getCompanies = async (searchOptions) => {
     let {id, name, db} = searchOptions;
-    let productsQuery = db
+    let companiesQuery = db
     .select()
     .from("companies")
 
     if (id){
-        productsQuery.where("ID", id);        
+        companiesQuery.where("ID", id);        
     }
 
     if (name){
-        productsQuery.where("name", name);
+        companiesQuery.where("name", name);
     }
 
-    return productsQuery
+    return companiesQuery
 }
 
 exports.getCompanies = getCompanies;
