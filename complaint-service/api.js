@@ -5,6 +5,7 @@ const statesRouter = require('./src/routers/statesRouter.js');
 const productRouter = require('./src/routers/productsRouter.js');
 const healthRouter = require('./src/routers/healthRouter.js');
 const companyRouter = require('./src/routers/companiesRouter.js');
+const complaintRouter = require('./src/routers/complaintRouter.js');
 const app = express();
 const port = 8080;
 
@@ -29,6 +30,7 @@ healthRouter.setUpRoutes(app);
 statesRouter.setUpRoutes(app);
 productRouter.setUpRoutes(app);
 companyRouter.setUpRoutes(app);
+complaintRouter.setUpRoutes(app);
 
 app.listen(port, function () {
   console.log(`api listening on port ${port}`);

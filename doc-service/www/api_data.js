@@ -69,6 +69,81 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/complaints",
+    "title": "GET complaints",
+    "description": "<p>request information on products</p>",
+    "name": "GetProducts",
+    "group": "complaints",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "complaintId",
+            "description": "<p>id of the complaint</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "companyId",
+            "description": "<p>id the company that has had a complaint filed against them</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>id of the product who has had a consumer complain for</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "issueId",
+            "description": "<p>id of the type of issue the complaint has been made for.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "stateId",
+            "description": "<p>id of the state where the complaint was made</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "timely",
+            "description": "<p>whether or not the company response was timely</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "boolean",
+            "optional": false,
+            "field": "disputed",
+            "description": "<p>whether or not the company disputed the complaint</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"complaintId\": 1,\n  \"companyId\": 1,\n  \"productId\": 1,\n  \"issueId\": 1,\n  \"stateId\": 28,\n  \"dateSent\": \"2014-03-17T00:00:00.000Z\",\n  \"narrative\": \"\",\n  \"publicResponse\": \"\",\n  \"timely\": true,\n  \"disputed\": false\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./src/routers/complaintRouter.js",
+    "groupTitle": "complaints"
+  },
+  {
+    "type": "get",
     "url": "/health",
     "title": "GET health",
     "name": "HealthCheck",
