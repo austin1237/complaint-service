@@ -3,10 +3,10 @@ const app = require("../api.js");
 const _ = require("lodash");
 const expect = require("chai").expect;
 
-describe('GET /complaints', function() {
+describe('GET /v1/complaints', function() {
     it('return valid complaints', function(done) {
       request(app)
-        .get('/complaints?complaintId=1')
+        .get('/v1/complaints?complaintId=1')
         .set('Accept', 'application/json')
         .expect(200)
         .end(function(err, res) {

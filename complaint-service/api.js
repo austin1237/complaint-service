@@ -39,9 +39,6 @@ app.listen(port, function () {
 module.exports = app;
 
 
-//Second Question 
-// this could be townID 
-// GET /populationSummary?startDate={x}&endDate={x}&companyID={X}
 
 
 

@@ -2,7 +2,7 @@ const statesController = require('../controllers/statesController.js');
 
 let setUpRoutes = (app) =>{
     /**
-    * @api {get} /states GET states
+    * @api {get} /v1/states GET states
     * @apiDescription request information on states
     * @apiName GetState
     * @apiGroup states
@@ -18,7 +18,7 @@ let setUpRoutes = (app) =>{
     *     }]
     */
 
-    app.get('/states', statesController.querySearch);
+    app.get('/v1/states', statesController.querySearch);
 }
 
 exports.setUpRoutes = setUpRoutes

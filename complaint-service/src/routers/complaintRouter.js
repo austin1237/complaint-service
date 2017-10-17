@@ -2,7 +2,7 @@ const complaintsController = require('../controllers/complaintsController.js');
 
 let setUpRoutes = (app) =>{
     /**
-    * @api {get} /complaints GET complaints
+    * @api {get} /v1/complaints GET complaints
     * @apiDescription request information on products
     * @apiName GetProducts
     * @apiGroup complaints
@@ -28,7 +28,7 @@ let setUpRoutes = (app) =>{
     *       "disputed": false
     *     }]
     */
-    app.get('/complaints', complaintsController.querySearch);
+    app.get('/v1/complaints', complaintsController.querySearch);
 }
 
 exports.setUpRoutes = setUpRoutes

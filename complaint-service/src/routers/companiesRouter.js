@@ -2,7 +2,7 @@ const companiesController = require('../controllers/companiesController.js');
 
 let setUpRoutes = (app) =>{
     /**
-    * @api {get} /companies GET companies
+    * @api {get} /v1/companies GET companies
     * @apiDescription request information on products
     * @apiName GetProducts
     * @apiGroup company
@@ -15,7 +15,7 @@ let setUpRoutes = (app) =>{
     *       "name": "Wallace Corporation"
     *     }]
     */
-    app.get('/companies', companiesController.querySearch);
+    app.get('/v1/companies', companiesController.querySearch);
 }
 
 exports.setUpRoutes = setUpRoutes

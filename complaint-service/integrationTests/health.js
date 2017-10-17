@@ -6,7 +6,7 @@ const expect = require("chai").expect;
 describe('GET /health', function() {
     it('return a 200', function(done) {
       request(app)
-        .get('/products')
+        .get('/health')
         .set('Accept', 'application/json')
         .expect(200)
         .end(function(err, res) {

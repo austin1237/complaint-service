@@ -2,7 +2,7 @@ const productsController = require('../controllers/productsController.js');
 
 let setUpRoutes = (app) =>{
     /**
-    * @api {get} /products GET products
+    * @api {get} /v1/products GET products
     * @apiDescription request information on products
     * @apiName GetProducts
     * @apiGroup products
@@ -15,10 +15,10 @@ let setUpRoutes = (app) =>{
     *       "name": "Mortgage"
     *     }]
     */
-    app.get('/products', productsController.querySearch);
+    app.get('/v1/products', productsController.querySearch);
 
     /**
-    * @api {get} /products/totals GET product totals
+    * @api {get} /v1/products/totals GET product totals
     * @apiName GetProductTotals
     * @apiDescription request total number of complaints per product
     * @apiGroup products
@@ -33,7 +33,7 @@ let setUpRoutes = (app) =>{
     *       "total": 1712
     *     }]
     */
-    app.get('/products/totals', productsController.totalSearch)
+    app.get('/v1/products/totals', productsController.totalSearch)
 }
 
 exports.setUpRoutes = setUpRoutes
