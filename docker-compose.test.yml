@@ -15,14 +15,3 @@ services:
       MYSQL_DB: complaints
       MYSQL_PASSWORD: password
       DOCKERIZE_VERSION: v0.3.0
-
-
-      complaintdb:
-    build: ./complaintdb
-    volumes:
-      - mysql_data:/var/lib/mysql
-    ports:
-      - "3001:3306"
-    environment:
-       MYSQL_DATABASE: complaints
-       MYSQL_ROOT_PASSWORD: password
