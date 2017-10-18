@@ -1,9 +1,7 @@
 version: '3'
 services:
   complaintdb:
-    build:
-      context: ./complaintdb
-      dockerfile: ./DockerfileCI
+    build: ./complaintdb
     environment:
        MYSQL_DATABASE: complaints
        MYSQL_ROOT_PASSWORD: password

@@ -23,7 +23,7 @@ docker-compose run complaint-service npm test
 runs on http://localhost:3001 </br>
 NOTE: data ingestion will only occur on  first time this container spins up. To wipe your current db and rerun the data ingestion scripts enter the following commands
 ```bash
-austin$ docker-compose down && docker-compose rm && docker volume rm ombudtest_mysql_data && docker-compose build && docker-compose up
+make wipe_and_seed_complaintdb
 ```
 ### Documentation
 runs on http://localhost:3002 </br>

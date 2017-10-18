@@ -29,7 +29,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/companies",
+    "url": "/v1/companies",
     "title": "GET companies",
     "description": "<p>request information on products</p>",
     "name": "GetProducts",
@@ -69,7 +69,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/complaints",
+    "url": "/v1/complaints",
     "title": "GET complaints",
     "description": "<p>request information on products</p>",
     "name": "GetProducts",
@@ -163,7 +163,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/products/totals",
+    "url": "/v1/products/totals",
     "title": "GET product totals",
     "name": "GetProductTotals",
     "description": "<p>request total number of complaints per product</p>",
@@ -217,7 +217,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/products",
+    "url": "/v1/products",
     "title": "GET products",
     "description": "<p>request information on products</p>",
     "name": "GetProducts",
@@ -257,7 +257,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/states",
+    "url": "/v1/states",
     "title": "GET states",
     "description": "<p>request information on states</p>",
     "name": "GetState",
