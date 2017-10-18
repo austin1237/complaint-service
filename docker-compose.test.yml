@@ -5,7 +5,6 @@ services:
     environment:
        MYSQL_DATABASE: complaints
        MYSQL_ROOT_PASSWORD: password
-       SQL_SEED: ciSeed.sql.gz
   complaint-service:
     build: ./complaint-service
     command: 'npm test'
