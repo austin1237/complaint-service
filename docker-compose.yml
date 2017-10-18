@@ -9,6 +9,7 @@ services:
     environment:
        MYSQL_DATABASE: complaints
        MYSQL_ROOT_PASSWORD: password
+       SQL_DIR: circleCISql
 
   complaint-service:
     build: ./complaint-service
