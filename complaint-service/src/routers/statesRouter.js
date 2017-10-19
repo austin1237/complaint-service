@@ -19,6 +19,26 @@ let setUpRoutes = (app) =>{
     */
 
     app.get('/v1/states', statesController.querySearch);
+
+    /**
+    * @api {get} /v1/states/growth GET states growth
+    * @apiDescription request information on states
+    * @apiName GetStateGrowth
+    * @apiGroup states
+    * @apiParam {int} stateId id of the state
+    * @apiParam {int} startYear the variable in populationDiff = (endYear - startYear)
+    * @apiParam {int} endYear the variable in populationDiff = (endYear - startYear)
+    * @apiSuccessExample {json} Success-Response:
+    *     HTTP/1.1 200 OK
+    *     [{
+    *       "stateId": 1,
+    *       "populationDiff": 2000,
+    *       "growthPercentage": .9832
+    *     }]
+    */
+    
+    app.get('/v1/states/growth', statesController.growthSearch);
+
 }
 
 exports.setUpRoutes = setUpRoutes
