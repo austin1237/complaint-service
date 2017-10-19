@@ -43,11 +43,14 @@ const growthDbToClient = (startYear, endYear) =>{
 
 const totalDbToClient = (totals) =>{
     clientReadyTotals = [];
-    _.each(totals, (total) =>{
+    _.each(totals, (totalObj) =>{
+        let {stateID, name, total} = totalObj
+        if (!stateID){
+            stateID = -1
+        }
         let clientTotal = {
-            stateId: total.stateID,
-            name: total.name,
-            total: total.total,
+            stateId: stateID,
+            total: total,
         }
         clientReadyTotals.push(clientTotal)
     })

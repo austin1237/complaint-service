@@ -13,7 +13,6 @@ describe("GET /v1/states", function() {
         if (err) return done(err);
         _.each(res.body, state => {
           expect(state.stateId).to.be.a("number");
-          expect(state.name).to.be.a("string");
           expect(state.abbreviation).to.be.a("string");
         });
         done();
@@ -53,7 +52,6 @@ describe("GET /v1/states/totals", function() {
         _.each(res.body, state => {
           expect(state.stateId).to.be.a("number");
           expect(state.total).to.be.a("number");
-          expect(state.name).to.be.a("string");
         });
         done();
       });
