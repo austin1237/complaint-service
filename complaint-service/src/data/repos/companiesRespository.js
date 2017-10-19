@@ -16,7 +16,7 @@ const getCompanies = async (searchOptions) => {
 }
 
 const getTotalsAsync = async (searchOptions) => {
-    let {productId, companyId, issueId, stateId} = searchOptions;
+    let {productId, companyId, issueId, stateId, orderBy} = searchOptions;
     let totalsQuery = db
     .select("complaints.companyID", "companies.name")
     .count('* as total')
@@ -40,8 +40,14 @@ const getTotalsAsync = async (searchOptions) => {
     }
     
     totalsQuery.groupBy("companyID")
-    
 
+    if (orderBy === "-total"){
+        totalsQuery.orderBy("total", "desc")
+    }
+    if (orderBy === "total"){
+        totalsQuery.orderBy("total", "asc")
+    }
+    
     return totalsQuery
 
 }
