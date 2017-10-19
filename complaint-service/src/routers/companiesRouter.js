@@ -16,6 +16,25 @@ let setUpRoutes = (app) =>{
     *     }]
     */
     app.get('/v1/companies', companiesController.querySearch);
+
+    /**
+    * @api {get} /v1/companies/totals GET product totals
+    * @apiName GetCompanyTotals
+    * @apiDescription request total number of complaints per company
+    * @apiGroup companies
+    * @apiParam {int} productId id of the product that filters the complaints totals
+    * @apiParam {int} companyId id of the company that filters the complaints totals
+    * @apiParam {int} issueId id of the issue that filters the complaints totals 
+    * @apiParam {int} stateId id of the state that filters the complaints totals
+    * @apiSuccessExample {json} Success-Response:
+    *     HTTP/1.1 200 OK
+    *     [{
+    *       "companyId": 1,
+            "name": "Wallace Corporation",
+    *       "total": 1712
+    *     }]
+    */
+    app.get('/v1/companies/totals', companiesController.totalSearch)
 }
 
 exports.setUpRoutes = setUpRoutes

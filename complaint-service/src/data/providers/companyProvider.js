@@ -11,4 +11,16 @@ const getCompaniesAsync = async (searchConfig) => {
     return companies
 }
 
+
+const getCompanyTotalsAsync = async (searchConfig) => {
+    try {
+        totals = await companiesRepo.getTotalsAsync(searchConfig)
+        totals = companiesAdapter.totalDbToClient(totals)
+     } catch(e) {
+         throw e
+     }
+     return totals
+}
+
+exports.getCompanyTotalsAsync = getCompanyTotalsAsync
 exports.getCompaniesAsync = getCompaniesAsync;
