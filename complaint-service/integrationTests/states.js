@@ -23,6 +23,7 @@ describe('GET /v1/states', function() {
 
 
 describe('GET /v1/states/growth', function() {
+  this.timeout = 3000;
   it('return valid states', function(done) {
     request(app)
       .get('/v1/states/growth?stateId=1')
