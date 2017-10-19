@@ -1,7 +1,7 @@
-const statesController = require('../controllers/statesController.js');
+const statesController = require("../controllers/statesController.js");
 
-let setUpRoutes = (app) =>{
-    /**
+let setUpRoutes = app => {
+  /**
     * @api {get} /v1/states GET states
     * @apiDescription request information on states
     * @apiName GetState
@@ -18,9 +18,9 @@ let setUpRoutes = (app) =>{
     *     }]
     */
 
-    app.get('/v1/states', statesController.querySearch);
+  app.get("/v1/states", statesController.querySearch);
 
-    /**
+  /**
     * @api {get} /v1/states/growth GET states growth
     * @apiDescription request information on states
     * @apiName GetStateGrowth
@@ -37,11 +37,10 @@ let setUpRoutes = (app) =>{
     *       "growthPercentage": .9832
     *     }]
     */
-    
-    app.get('/v1/states/growth', statesController.growthSearch);
-    
 
-    /**
+  app.get("/v1/states/growth", statesController.growthSearch);
+
+  /**
     * @api {get} /v1/states/totals GET state totals
     * @apiName GetCompanyTotals
     * @apiDescription request total number of complaints per state
@@ -59,8 +58,7 @@ let setUpRoutes = (app) =>{
     *     }]
     */
 
-    app.get('/v1/states/totals', statesController.totalSearch);
+  app.get("/v1/states/totals", statesController.totalSearch);
+};
 
-}
-
-exports.setUpRoutes = setUpRoutes
+exports.setUpRoutes = setUpRoutes;
