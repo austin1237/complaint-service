@@ -19,6 +19,12 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+// super super basic error handler
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('Internal server error')
+})
+
 // Injects the db into all routes
 app.use('/', (req, res, next) =>{
   req.db = db
