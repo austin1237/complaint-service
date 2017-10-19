@@ -24,7 +24,6 @@ const getPopulationsAsync = async (searchOptions) => {
     }
     populationQuery.whereIn("towns.ID", subquery);
 
-
     if (year){
         populationQuery.where("populations.year", year);        
     }

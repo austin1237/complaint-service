@@ -1,5 +1,5 @@
 _ = require('lodash')
-let dbToClient = (states) =>{
+const dbToClient = (states) =>{
     clientReadyStates = [];
     _.each(states, (state) =>{
         let clientState = {
@@ -12,7 +12,7 @@ let dbToClient = (states) =>{
     return clientReadyStates
 }
 
-let growthDbToClient = (startYear, endYear) =>{
+const growthDbToClient = (startYear, endYear) =>{
     popHash = {};
     growthArray = [];
     _.each(startYear, (pop) =>{
@@ -41,5 +41,42 @@ let growthDbToClient = (startYear, endYear) =>{
     return growthArray
 }
 
-exports.growthDbToClient= growthDbToClient
-exports.dbToClient = dbToClient
+const totalDbToClient = (totals) =>{
+    clientReadyTotals = [];
+    _.each(totals, (total) =>{
+        let clientTotal = {
+            stateId: total.stateID,
+            name: total.name,
+            total: total.total,
+        }
+        clientReadyTotals.push(clientTotal)
+    })
+    return clientReadyTotals
+}
+
+
+const growthOrderBy = (objs, orderBy) =>{
+    if (orderBy === "populationDiff"){
+       objs = _.orderBy(objs, ['populationDiff'], ['asc']);
+    }
+
+    if (orderBy === "-populationDiff"){
+        objs = _.orderBy(objs, ['populationDiff'], ['desc']);
+    }
+
+    if(orderBy === "growthPercentage"){
+        objs = _.orderBy(objs, ['growthPercentage'], ['asc']);
+    }
+
+    if(orderBy === "-growthPercentage"){
+        objs = _.orderBy(objs, ['growthPercentage'], ['desc']);
+    }
+
+    return objs
+    
+}
+
+exports.growthOrderBy = growthOrderBy;
+exports.totalDbToClient = totalDbToClient;
+exports.growthDbToClient = growthDbToClient;
+exports.dbToClient = dbToClient;

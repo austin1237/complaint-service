@@ -39,6 +39,8 @@ let setUpRoutes = (app) =>{
     
     app.get('/v1/states/growth', statesController.growthSearch);
 
+    app.get('/v1/states/totals', statesController.totalSearch)
+
 }
 
 exports.setUpRoutes = setUpRoutes
