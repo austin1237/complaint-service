@@ -26,6 +26,7 @@ let setUpRoutes = (app) =>{
     * @apiParam {int} companyId id of the company that filters the complaints totals
     * @apiParam {int} issueId id of the issue that filters the complaints totals 
     * @apiParam {int} stateId id of the state that filters the complaints totals
+    * @apiParam {string} orderBy  valid sorting options are total for ascending order or -total for descending order
     * @apiSuccessExample {json} Success-Response:
     *     HTTP/1.1 200 OK
     *     [{

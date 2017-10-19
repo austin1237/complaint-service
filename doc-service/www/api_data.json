@@ -29,6 +29,67 @@
   },
   {
     "type": "get",
+    "url": "/v1/companies/totals",
+    "title": "GET product totals",
+    "name": "GetCompanyTotals",
+    "description": "<p>request total number of complaints per company</p>",
+    "group": "companies",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>id of the product that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "companyId",
+            "description": "<p>id of the company that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "issueId",
+            "description": "<p>id of the issue that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "stateId",
+            "description": "<p>id of the state that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "orderBy",
+            "description": "<p>valid sorting options are total for ascending order or -total for descending order</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"companyId\": 1,\n        \"name\": \"Wallace Corporation\",\n  \"total\": 1712\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./src/routers/companiesRouter.js",
+    "groupTitle": "companies"
+  },
+  {
+    "type": "get",
     "url": "/v1/companies",
     "title": "GET companies",
     "description": "<p>request information on products</p>",
@@ -198,6 +259,13 @@
             "optional": false,
             "field": "stateId",
             "description": "<p>id of the state that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "orderBy",
+            "description": "<p>valid sorting options are total for ascending order or -total for descending order</p>"
           }
         ]
       }
@@ -257,6 +325,67 @@
   },
   {
     "type": "get",
+    "url": "/v1/states/totals",
+    "title": "GET state totals",
+    "name": "GetCompanyTotals",
+    "description": "<p>request total number of complaints per state</p>",
+    "group": "states",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "productId",
+            "description": "<p>id of the product that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "companyId",
+            "description": "<p>id of the company that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "issueId",
+            "description": "<p>id of the issue that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "stateId",
+            "description": "<p>id of the state that filters the complaints totals</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "orderBy",
+            "description": "<p>valid sorting options are total for ascending order or -total for descending order</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"stateId\": 1,\n        \"name\": \"california\",\n  \"total\": 1712\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./src/routers/statesRouter.js",
+    "groupTitle": "states"
+  },
+  {
+    "type": "get",
     "url": "/v1/states",
     "title": "GET states",
     "description": "<p>request information on states</p>",
@@ -281,10 +410,10 @@
           },
           {
             "group": "Parameter",
-            "type": "abbreviation",
+            "type": "string",
             "optional": false,
-            "field": "two",
-            "description": "<p>letter abbreviation of the state</p>"
+            "field": "abbreviation",
+            "description": "<p>two letter abbreviation of the state</p>"
           }
         ]
       }
@@ -332,6 +461,13 @@
             "optional": false,
             "field": "endYear",
             "description": "<p>the variable in populationDiff = (endYear - startYear)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "orderBy",
+            "description": "<p>valid sorting options are populationDiff/growthPercentage for ascending order or -populationDiff/-growthPercentage for descending order</p>"
           }
         ]
       }
