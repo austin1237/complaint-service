@@ -55,7 +55,6 @@ let setUpRoutes = (app) =>{
     *     HTTP/1.1 200 OK
     *     [{
     *       "stateId": 1,
-    *       "name": "california",
     *       "total": 1712
     *     }]
     */
