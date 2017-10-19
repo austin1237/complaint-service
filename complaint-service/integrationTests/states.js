@@ -20,3 +20,24 @@ describe('GET /v1/states', function() {
         });
     });
 });
+
+
+describe('GET /v1/states/growth', function() {
+  it('return valid states', function(done) {
+    request(app)
+      .get('/v1/states/growth')
+      .set('Accept', 'application/json')
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        expect(res.body.length).to.not.equal(0);
+        _.each(res.body, (state)=>{
+          expect(state.stateId).to.be.a("number");
+          expect(state.populationDiff).to.be.a("number");
+          expect(state.growthPercentage).to.be.a("number");
+        })
+        done();
+      });
+  });
+});
+

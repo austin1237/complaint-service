@@ -301,5 +301,52 @@ define({ "api": [
     "version": "0.0.0",
     "filename": "./src/routers/statesRouter.js",
     "groupTitle": "states"
+  },
+  {
+    "type": "get",
+    "url": "/v1/states/growth",
+    "title": "GET states growth",
+    "description": "<p>request information on states</p>",
+    "name": "GetStateGrowth",
+    "group": "states",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "stateId",
+            "description": "<p>id of the state</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "startYear",
+            "description": "<p>the variable in populationDiff = (endYear - startYear)</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "int",
+            "optional": false,
+            "field": "endYear",
+            "description": "<p>the variable in populationDiff = (endYear - startYear)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"stateId\": 1,\n  \"populationDiff\": 2000,\n  \"growthPercentage\": .9832\n}]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./src/routers/statesRouter.js",
+    "groupTitle": "states"
   }
 ] });
