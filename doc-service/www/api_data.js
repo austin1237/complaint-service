@@ -375,7 +375,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"stateId\": 1,\n  \"name\": \"california\",\n  \"total\": 1712\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"stateId\": 1,\n  \"total\": 1712\n}]",
           "type": "json"
         }
       ]
