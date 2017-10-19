@@ -14,6 +14,9 @@ const getStatesAsync = async (searchConfig) => {
 
 const getPopulationsGrowthAsync = async (searchOptions) => {
     let {stateId, startYear, endYear, db, orderBy} = searchOptions
+    if (stateId){
+        stateId = stateId.split(',')
+    }
     startSearchConfig = {
         year: startYear,
         stateID: stateId,

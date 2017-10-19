@@ -7,9 +7,8 @@ const getPopulationsAsync = async (searchOptions) => {
     .select("states.ID as stateID", "states.name as stateName")
     .sum('populations.total as population')
     .from("states")
-    
-    populationQuery.innerJoin('towns', 'states.ID', 'towns.stateID')
-    populationQuery.innerJoin('populations', 'towns.ID', 'populations.townID')
+    .innerJoin('towns', 'states.ID', 'towns.stateID')
+    .innerJoin('populations', 'towns.ID', 'populations.townID')
 
 
     if (stateID){
@@ -27,6 +26,7 @@ const getPopulationsAsync = async (searchOptions) => {
     if (year){
         populationQuery.where("populations.year", year);        
     }
+
 
     populationQuery.groupBy("stateID")
 

@@ -31,6 +31,7 @@ let setUpRoutes = (app) =>{
     *     HTTP/1.1 200 OK
     *     [{
     *       "productId": 1,
+    *        "name": "Mortgage",
     *       "total": 1712
     *     }]
     */

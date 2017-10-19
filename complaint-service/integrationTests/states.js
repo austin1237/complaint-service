@@ -12,7 +12,7 @@ describe('GET /v1/states', function() {
         .end(function(err, res) {
           if (err) return done(err);
           _.each(res.body, (state)=>{
-            expect(state.id).to.be.a("number");
+            expect(state.stateId).to.be.a("number");
             expect(state.name).to.be.a("string");
             expect(state.abbreviation).to.be.a("string");
           })
