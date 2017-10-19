@@ -27,6 +27,7 @@ make wipe_and_seed_complaintdb
 ```
 ### Documentation
 runs on http://localhost:3002 </br>
+uses http://apidocjs.com/ <br>
 To refresh your documentation enter this command
 ```bash
 make refresh_docs
