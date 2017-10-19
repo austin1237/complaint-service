@@ -1,7 +1,7 @@
-const companiesController = require('../controllers/companiesController.js');
+const companiesController = require("../controllers/companiesController.js");
 
-let setUpRoutes = (app) =>{
-    /**
+let setUpRoutes = app => {
+  /**
     * @api {get} /v1/companies GET companies
     * @apiDescription request information on companies
     * @apiName GetProducts
@@ -15,9 +15,9 @@ let setUpRoutes = (app) =>{
     *       "name": "Wallace Corporation"
     *     }]
     */
-    app.get('/v1/companies', companiesController.querySearch);
+  app.get("/v1/companies", companiesController.querySearch);
 
-    /**
+  /**
     * @api {get} /v1/companies/totals GET companies totals
     * @apiName GetCompanyTotals
     * @apiDescription request total number of complaints per company
@@ -35,7 +35,7 @@ let setUpRoutes = (app) =>{
     *       "total": 1712
     *     }]
     */
-    app.get('/v1/companies/totals', companiesController.totalSearch)
-}
+  app.get("/v1/companies/totals", companiesController.totalSearch);
+};
 
-exports.setUpRoutes = setUpRoutes
+exports.setUpRoutes = setUpRoutes;

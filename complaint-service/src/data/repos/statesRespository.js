@@ -22,11 +22,10 @@ const getStates = async (searchOptions) => {
 const getTotalsAsync = async (searchOptions) => {
     let {productId, companyId, issueId, stateId, orderBy} = searchOptions;
     let totalsQuery = db
-    .select("complaints.stateID", "states.name")
+    .select("complaints.stateID")
     .count('* as total')
     .from("complaints")
 
-    totalsQuery.innerJoin('states', 'complaints.stateID', 'states.ID')
     
     if (productId){
         totalsQuery.where("productID", productId);        
