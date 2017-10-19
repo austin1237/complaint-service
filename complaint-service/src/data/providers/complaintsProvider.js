@@ -14,4 +14,15 @@ const getComplaintsAync = async (searchConfig) => {
     return complaints
 }
 
+const getCompaniesTotalsAsync = async (searchConfig) => {
+    try {
+        totals = await complaintsRepo.getTotals(searchConfig)
+        totals = complaintsRepo.totalDbToClient(totals)
+     } catch(e) {
+         throw e
+     }
+     return totals
+}
+
+exports.getCompaniesTotalsAsync = getCompaniesTotalsAsync;
 exports.getComplaintsAync = getComplaintsAync;

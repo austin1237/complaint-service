@@ -16,7 +16,7 @@ docker-compose up
 runs on http://localhost:3000 </br>
 To run the test suite use the command
 ```bash
-docker-compose run complaint-service npm test
+make test
 ```
 
 ### DB
@@ -29,7 +29,7 @@ make wipe_and_seed_complaintdb
 runs on http://localhost:3002 </br>
 To refresh your documentation enter this command
 ```bash
-docker-compose up doc-generator
+make refresh_docs
 ```
 
 

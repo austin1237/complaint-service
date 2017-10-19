@@ -5,4 +5,12 @@ wipe_and_seed_complaintdb:
 	docker-compose build  --no-cache complaintdb
 	docker-compose up complaintdb
 
+.PHONEY: test
+test:
+	docker-compose run complaint-service npm test
+
+
+.PHONEY: refresh_docs
+refresh_docs:
+	docker-compose up doc-generator
 

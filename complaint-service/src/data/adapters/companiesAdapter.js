@@ -12,4 +12,19 @@ let companyDbToClient = (companies) =>{
     return clientReady;
 }
 
+let totalDbToClient = (totals) =>{
+    clientReadyTotals = [];
+    _.each(totals, (total) =>{
+        let clientTotal = {
+            companyId: total.companyID,
+            name: total.name,
+            total: total.total,
+        }
+        clientReadyTotals.push(clientTotal)
+    })
+    return clientReadyTotals
+}
+
+
+exports.totalDbToClient = totalDbToClient;
 exports.companyDbToClient = companyDbToClient

@@ -19,3 +19,21 @@ describe('GET /v1/companies', function() {
         });
     });
 });
+
+describe('GET /v1/companies/totals', function() {
+  it('return valid totals', function(done) {
+    request(app)
+      .get('/v1/companies/totals')
+      .set('Accept', 'application/json')
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        _.each(res.body, (company)=>{
+          expect(company.companyId).to.be.a("number");
+          expect(company.total).to.be.a("number");
+          expect(company.name).to.be.a("string");
+        })
+        done();
+      });
+  });
+});
