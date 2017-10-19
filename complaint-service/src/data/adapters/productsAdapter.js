@@ -18,6 +18,7 @@ let totalDbToClient = (totals) =>{
         let clientTotal = {
             productId: total.productID,
             total: total.total,
+            name: total.name
         }
         clientReadyTotals.push(clientTotal)
     })

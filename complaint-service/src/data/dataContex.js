@@ -2,7 +2,6 @@ let knex = require('knex');
 
 let getDb = (env) =>{
   const {MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB} = env
-  console.log(MYSQL_HOST, MYSQL_DB)
   db = knex({
     client: 'mysql',
     connection:{

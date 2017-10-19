@@ -23,7 +23,7 @@ const totalSearch = async (req, res, next) => {
     let {productId, companyId, issueId, stateId} = req.query
     let db = req.db
     searchConfig = {
-        proudctId: productId,
+        productId: productId,
         companyId: companyId,
         issueId: issueId,
         stateId: stateId,

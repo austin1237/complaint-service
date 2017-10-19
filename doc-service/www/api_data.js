@@ -30,7 +30,7 @@ define({ "api": [
   {
     "type": "get",
     "url": "/v1/companies/totals",
-    "title": "GET product totals",
+    "title": "GET companies totals",
     "name": "GetCompanyTotals",
     "description": "<p>request total number of complaints per company</p>",
     "group": "companies",
@@ -79,7 +79,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"companyId\": 1,\n        \"name\": \"Wallace Corporation\",\n  \"total\": 1712\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"companyId\": 1,\n  \"name\": \"Wallace Corporation\",\n  \"total\": 1712\n}]",
           "type": "json"
         }
       ]
@@ -92,9 +92,9 @@ define({ "api": [
     "type": "get",
     "url": "/v1/companies",
     "title": "GET companies",
-    "description": "<p>request information on products</p>",
+    "description": "<p>request information on companies</p>",
     "name": "GetProducts",
-    "group": "company",
+    "group": "companies",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -126,13 +126,13 @@ define({ "api": [
     },
     "version": "0.0.0",
     "filename": "./src/routers/companiesRouter.js",
-    "groupTitle": "company"
+    "groupTitle": "companies"
   },
   {
     "type": "get",
     "url": "/v1/complaints",
     "title": "GET complaints",
-    "description": "<p>request information on products</p>",
+    "description": "<p>request information on complaints</p>",
     "name": "GetProducts",
     "group": "complaints",
     "parameter": {
@@ -274,7 +274,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"productId\": 1,\n  \"total\": 1712\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"productId\": 1,\n   \"name\": \"Mortgage\",\n  \"total\": 1712\n}]",
           "type": "json"
         }
       ]
@@ -375,7 +375,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"stateId\": 1,\n        \"name\": \"california\",\n  \"total\": 1712\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"stateId\": 1,\n  \"name\": \"california\",\n  \"total\": 1712\n}]",
           "type": "json"
         }
       ]
@@ -398,7 +398,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "int",
             "optional": false,
-            "field": "id",
+            "field": "stateId",
             "description": "<p>id of the state</p>"
           },
           {
@@ -422,7 +422,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": 1,\n  \"name\": \"California\",\n  \"abbreviation\": \"CA\"\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"stateId\": 1,\n  \"name\": \"California\",\n  \"abbreviation\": \"CA\"\n}]",
           "type": "json"
         }
       ]

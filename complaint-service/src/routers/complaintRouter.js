@@ -3,7 +3,7 @@ const complaintsController = require('../controllers/complaintsController.js');
 let setUpRoutes = (app) =>{
     /**
     * @api {get} /v1/complaints GET complaints
-    * @apiDescription request information on products
+    * @apiDescription request information on complaints
     * @apiName GetProducts
     * @apiGroup complaints
     * @apiParam {int} complaintId id of the complaint

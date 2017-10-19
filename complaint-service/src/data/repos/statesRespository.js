@@ -1,11 +1,11 @@
 const getStates = async (searchOptions) => {
-    let {id, name, abbreviation, db} = searchOptions;
+    let {stateId, name, abbreviation, db} = searchOptions;
     let statesQuery = db
     .select()
     .from("states")
 
-    if (id){
-        statesQuery.where("ID", id);        
+    if (stateId){
+        statesQuery.where("ID", stateId);        
     }
 
     if (name){

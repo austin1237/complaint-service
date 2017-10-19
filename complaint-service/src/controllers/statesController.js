@@ -1,9 +1,9 @@
 const stateProvider = require('../data/providers/stateProvider')
 const querySearch = async (req, res, next) => {
-    let {id, name, abbreviation} = req.query
+    let {stateId, name, abbreviation} = req.query
     let db = req.db
     searchConfig = {
-        id: id,
+        stateId: stateId,
         name: name,
         abbreviation: abbreviation,
         db: db
@@ -22,9 +22,8 @@ const querySearch = async (req, res, next) => {
 const growthSearch = async (req, res, next) =>{
     let {stateId, year, startYear, endYear, orderBy} = req.query
     let db = req.db
-
     searchConfig = {
-        stateID: stateId,
+        stateId: stateId,
         db: db,
         startYear: startYear,
         endYear: endYear,

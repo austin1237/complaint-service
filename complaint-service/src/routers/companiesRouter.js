@@ -3,9 +3,9 @@ const companiesController = require('../controllers/companiesController.js');
 let setUpRoutes = (app) =>{
     /**
     * @api {get} /v1/companies GET companies
-    * @apiDescription request information on products
+    * @apiDescription request information on companies
     * @apiName GetProducts
-    * @apiGroup company
+    * @apiGroup companies
     * @apiParam {int} companyId id of the company
     * @apiParam {string} name name of the company
     * @apiSuccessExample {json} Success-Response:
@@ -18,7 +18,7 @@ let setUpRoutes = (app) =>{
     app.get('/v1/companies', companiesController.querySearch);
 
     /**
-    * @api {get} /v1/companies/totals GET product totals
+    * @api {get} /v1/companies/totals GET companies totals
     * @apiName GetCompanyTotals
     * @apiDescription request total number of complaints per company
     * @apiGroup companies
@@ -31,7 +31,7 @@ let setUpRoutes = (app) =>{
     *     HTTP/1.1 200 OK
     *     [{
     *       "companyId": 1,
-            "name": "Wallace Corporation",
+    *       "name": "Wallace Corporation",
     *       "total": 1712
     *     }]
     */

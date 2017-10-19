@@ -3,7 +3,7 @@ const dbToClient = (states) =>{
     clientReadyStates = [];
     _.each(states, (state) =>{
         let clientState = {
-            id: state.ID,
+            stateId: state.ID,
             name: state.name,
             abbreviation: state.abbreviation
         }
