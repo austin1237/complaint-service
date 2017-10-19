@@ -25,7 +25,7 @@ describe('GET /v1/states', function() {
 describe('GET /v1/states/growth', function() {
   it('return valid states', function(done) {
     request(app)
-      .get('/v1/states/growth')
+      .get('/v1/states/growth?stateId=1')
       .set('Accept', 'application/json')
       .expect(200)
       .end(function(err, res) {
